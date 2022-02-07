@@ -1,0 +1,10 @@
+- the wireframe provided is not complicated however, since it's just a jpeg file and it is quite difficult to extract the exact color and fontsize, I have given my best guess trying to match the layout.
+
+- loading state and error state layout is not provided, I will have to come up with my own design for them
+
+- other than things mentioned above, coding the frontend is pretty staright forward
+
+- couple important libraries were used: bootstrap and bootstrap vue, bootstrap's grid system and flex box utilities are very handy and makes styling very easy while bootstrap vue has tons of useful components for styling special effects such as the loading states components (i.e BSkeletons). On the other hand, fontawesome is also very handy for including icons and fontawesome vue has made a vue component for vue developers to easily include any fontawesome icons.  
+
+- vuex store is not needed in this demo but it is very likely required in bigger projects, however, since vux store is my default project setup therefore i have included it in this demo
+

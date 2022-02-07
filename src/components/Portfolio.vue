@@ -12,7 +12,11 @@
 					</div>
 				</template>
 				<template>
-					<div class="row no-gutters mx-n2 row-cols-1 row-cols-md-2 row-cols-lg-3">
+					<div v-if="isError" class="text-center mt-3">
+						<h4 class="text-danger">Whoops! Something went wrong, please try again later</h4>
+						<button class="btn btn-dark mt-3 font-weight-bold" v-on:click="getAlbums">RETRY</button>
+					</div>
+					<div v-else class="row no-gutters mx-n2 row-cols-1 row-cols-md-2 row-cols-lg-3">
 						<album v-for="{ _id, title, description, cover, createdAt, featured } in albums"
 						       v-bind:key="_id" class="col p-2"
 						       v-bind:album-id="_id" v-bind:title="title"
@@ -51,17 +55,22 @@ export default {
 		return {
 			albums: [],
 			loading: true,
+			isError: false,
 		}
 	},
 	
 	methods: {
 		async getAlbums() {
+			this.loading = true;
+			this.isError = false;
+			
 			try {
 				this.albums = await fetchAlbum("");
-				this.loading = false;
 			} catch (e) {
-				// keep the loading state
+				this.isError = true;
 			}
+			
+			this.loading = false;
 		}
 	}
 }
